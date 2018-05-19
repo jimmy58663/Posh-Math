@@ -1,5 +1,28 @@
 ﻿#Return boolean value as to whether the input is Prime.
 Function Test-Prime{
+<#
+.SYNOPSIS
+Test if a provided number is prime.
+
+.DESCRIPTION
+Returns a Boolean value as to whether the provided number is prime.
+
+.PARAMETER Number
+A 64 bit integer that will be tested to determine if it is a prime number.
+
+.EXAMPLE
+Test-Prime -Number 147
+
+.EXAMPLE
+Test-Prime 147
+
+.OUTPUTS
+[System.Boolean]
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 19 May 2018
+#>
 [cmdletbinding()]
 param(
     [Parameter(Mandatory=$true,Position=0)]
@@ -20,6 +43,29 @@ param(
 
 #Return array of the prime factors for the input.
 Function Get-PrimeFactor{
+<#
+.SYNOPSIS
+Get the prime factors of a number.
+
+.DESCRIPTION
+Returns an array of integers containing all the prime factors of the provided number.
+
+.PARAMETER Number
+A 64 bit integer to which you wish to know the prime factors.
+
+.EXAMPLE
+Get-PrimeFactor -Number 147
+
+.EXAMPLE
+Get-PrimeFactor 147
+
+.OUTPUTS
+[System.Array] of [System.Int64]
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 19 May 2018
+#>
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
@@ -42,6 +88,29 @@ Function Get-PrimeFactor{
 
 #Provides the least common multiple for the input.
 Function Get-LeastCommonMultiple{
+<#
+.SYNOPSIS
+Get the least common multiple of provided numbers.
+
+.DESCRIPTION
+Returns the least common multiple of the provided numbers.
+
+.PARAMETER Numbers
+An array of 64 bit integers.
+
+.EXAMPLE
+Get-LeastCommonMultiple -Numbers 147, 257
+
+.EXAMPLE
+Get-LeastCommonMultiple 147, 257
+
+.OUTPUTS
+[System.Int64]
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 19 May 2018
+#>
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
@@ -73,11 +142,35 @@ Function Get-LeastCommonMultiple{
     ForEach ($Entry in $Exponentiation){
         $Product = $Product * $Entry
     }
+    $Product = [Convert]::ToInt64($Product, $null)
     Write-Output $Product
 }
 
 #Provides the sum of all the squares that are input.
 Function Get-SumOfSquare{
+<#
+.SYNOPSIS
+Get the sum of the squares of provided numbers.
+
+.DESCRIPTION
+Returns the sum of the square of the provided numbers.
+
+.PARAMETER Numbers
+An array of 64 bit integers.
+
+.EXAMPLE
+Get-SumOfSquare -Numbers 147, 257
+
+.EXAMPLE
+Get-SumOfSquare 147, 257
+
+.OUTPUTS
+[System.Int64]
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 19 May 2018
+#>
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
@@ -92,6 +185,29 @@ Function Get-SumOfSquare{
 
 #Provides the square of the sum of input.
 Function Get-SquareOfSum{
+<#
+.SYNOPSIS
+Get the square of the sum of provided numbers.
+
+.DESCRIPTION
+Returns the square of the sum of the provided numbers.
+
+.PARAMETER Numbers
+An array of 64 bit integers.
+
+.EXAMPLE
+Get-SquareOfSum -Numbers 147, 257
+
+.EXAMPLE
+Get-SquareOfSum 147, 257
+
+.OUTPUTS
+[System.Int64]
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 19 May 2018
+#>
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
@@ -107,6 +223,29 @@ Function Get-SquareOfSum{
 
 #Get all factors of a number.
 Function Get-Factor{
+<#
+.SYNOPSIS
+Get all the factors of a number.
+
+.DESCRIPTION
+Returns an array of integers containing all the factors of the provided number.
+
+.PARAMETER Number
+A 64 bit integer to which you wish to know the factors.
+
+.EXAMPLE
+Get-Factor -Number 147
+
+.EXAMPLE
+Get-Factor 147
+
+.OUTPUTS
+[System.Array] of [System.Int64]
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 19 May 2018
+#>
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
