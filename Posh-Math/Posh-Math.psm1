@@ -105,8 +105,8 @@ Function Get-SquareOfSum{
     Write-Output $Total
 }
 
-#Get all factors of a number.
-Function Get-Factor{
+#Get all factors of a number. Work in progress.
+<#Function Get-Factor{
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
@@ -134,4 +134,4 @@ Function Get-Factor{
     $Factors.Add($Number)
     $Factors = $Factors | Sort-Object
     Write-Output $Factors
-}
+}#>
