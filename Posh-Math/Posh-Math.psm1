@@ -3,7 +3,7 @@ Function Test-Prime{
 [cmdletbinding()]
 param(
     [Parameter(Mandatory=$true,Position=0)]
-    [int]$Number
+    [long]$Number
 )
     $LowEnd = 2
     $HighEnd = [Math]::Sqrt($Number)
@@ -27,7 +27,7 @@ Function Get-PrimeFactor{
     )
     $Divisor = 2
     $Result = $Number
-    $PrimeFactors = New-Object System.Collections.Generic.List[int]
+    $PrimeFactors = New-Object System.Collections.Generic.List[long]
     While ($Result -gt 1){
         If ($Result % $Divisor -eq 0){
             $Result = $Result / $Divisor
@@ -81,7 +81,7 @@ Function Get-SumOfSquare{
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
-        [int[]]$Numbers
+        [long[]]$Numbers
     )
     $Total = 0
     ForEach ($Item in $Numbers){
@@ -95,7 +95,7 @@ Function Get-SquareOfSum{
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
-        [int[]]$Numbers
+        [long[]]$Numbers
     )
     $Total = 0
     ForEach ($Item in $Numbers){
@@ -105,33 +105,25 @@ Function Get-SquareOfSum{
     Write-Output $Total
 }
 
-#Get all factors of a number. Work in progress.
-<#Function Get-Factor{
+#Get all factors of a number.
+Function Get-Factor{
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
         [long]$Number
     )
-    $Divisor = 2
-    $Count = 1
-    $Result = $Number
-    $Factors = New-Object System.Collections.Generic.List[int]
-    While ($Result -gt 1){
-        If ($Result % $Divisor -eq 0){
-            $Result = $Result / $Divisor
-            $Factors.Add([Math]::Pow($Divisor, $Count))
+    $End = [Math]::Sqrt($Number)
+    $Factors = New-Object System.Collections.Generic.List[long]
+    For ($Divisor = 2; $Divisor -le $End; $Divisor++){
+        If ($Number % $Divisor -eq 0){
+            $Result = $Number / $Divisor
             $Factors.Add($Result)
-            $Count++
-        }
-        Else{
-            $Divisor++
-            $Count = 1
+            $Factors.Add($Divisor)
         }
     }
 
-
     $Factors.Add(1)
     $Factors.Add($Number)
-    $Factors = $Factors | Sort-Object
+    $Factors = $Factors | Select-Object -Unique | Sort-Object
     Write-Output $Factors
-}#>
+}
