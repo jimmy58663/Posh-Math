@@ -103,11 +103,11 @@ Get the least common multiple of provided numbers.
 .DESCRIPTION
 Returns the least common multiple of the provided numbers.
 
-.PARAMETER Numbers
+.PARAMETER Number
 An array of 64 bit integers.
 
 .EXAMPLE
-Get-LeastCommonMultiple -Numbers 147, 257
+Get-LeastCommonMultiple -Number 147, 257
 37779
 
 .EXAMPLE
@@ -124,10 +124,10 @@ Last Modified: 19 May 2018
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
-        [long[]]$Numbers
+        [long[]]$Number
     )
     $Collection = New-Object System.Collections.Generic.List[PSObject]
-    ForEach ($Entry in $Numbers){
+    ForEach ($Entry in $Number){
         $Group = Get-PrimeFactor -Number $Entry | Group-Object
         ForEach ($Item in $Group){
             $Obj = New-Object -TypeName PSObject -Property @{
@@ -165,11 +165,11 @@ Get the sum of the squares of provided numbers.
 .DESCRIPTION
 Returns the sum of the square of the provided numbers.
 
-.PARAMETER Numbers
+.PARAMETER Number
 An array of 64 bit integers.
 
 .EXAMPLE
-Get-SumOfSquare -Numbers 147, 257
+Get-SumOfSquare -Number 147, 257
 87658
 
 .EXAMPLE
@@ -186,10 +186,10 @@ Last Modified: 19 May 2018
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
-        [long[]]$Numbers
+        [long[]]$Number
     )
     $Total = 0
-    ForEach ($Item in $Numbers){
+    ForEach ($Item in $Number){
         $Total += $Item * $Item
     }
     Write-Output $Total
@@ -204,11 +204,11 @@ Get the square of the sum of provided numbers.
 .DESCRIPTION
 Returns the square of the sum of the provided numbers.
 
-.PARAMETER Numbers
+.PARAMETER Number
 An array of 64 bit integers.
 
 .EXAMPLE
-Get-SquareOfSum -Numbers 147, 257
+Get-SquareOfSum -Number 147, 257
 163213
 
 .EXAMPLE
@@ -225,10 +225,10 @@ Last Modified: 19 May 2018
     [cmdletbinding()]
     param(
         [Parameter(Mandatory=$true,Position=0)]
-        [long[]]$Numbers
+        [long[]]$Number
     )
     $Total = 0
-    ForEach ($Item in $Numbers){
+    ForEach ($Item in $Number){
         $Total += $Item
     }
     $Total = $Total * $Total
