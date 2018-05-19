@@ -26,7 +26,7 @@ Last Modified: 19 May 2018
 #>
 [cmdletbinding()]
 param(
-    [Parameter(Mandatory=$true,Position=0)]
+    [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
     [long]$Number
 )
     $LowEnd = 2
@@ -76,7 +76,7 @@ Last Modified: 19 May 2018
 #>
     [cmdletbinding()]
     param(
-        [Parameter(Mandatory=$true,Position=0)]
+        [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
         [long]$Number
     )
     $Divisor = 2
@@ -123,7 +123,7 @@ Last Modified: 19 May 2018
 #>
     [cmdletbinding()]
     param(
-        [Parameter(Mandatory=$true,Position=0)]
+        [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
         [long[]]$Number
     )
     $Collection = New-Object System.Collections.Generic.List[PSObject]
@@ -185,7 +185,7 @@ Last Modified: 19 May 2018
 #>
     [cmdletbinding()]
     param(
-        [Parameter(Mandatory=$true,Position=0)]
+        [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
         [long[]]$Number
     )
     $Total = 0
@@ -224,7 +224,7 @@ Last Modified: 19 May 2018
 #>
     [cmdletbinding()]
     param(
-        [Parameter(Mandatory=$true,Position=0)]
+        [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
         [long[]]$Number
     )
     $Total = 0
@@ -280,7 +280,7 @@ Last Modified: 19 May 2018
 #>
     [cmdletbinding()]
     param(
-        [Parameter(Mandatory=$true,Position=0)]
+        [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
         [long]$Number
     )
     $End = [Math]::Sqrt($Number)
