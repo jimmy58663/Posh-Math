@@ -12,9 +12,11 @@ A 64 bit integer that will be tested to determine if it is a prime number.
 
 .EXAMPLE
 Test-Prime -Number 147
+False
 
 .EXAMPLE
-Test-Prime 147
+Test-Prime 3
+True
 
 .OUTPUTS
 [System.Boolean]
@@ -55,9 +57,16 @@ A 64 bit integer to which you wish to know the prime factors.
 
 .EXAMPLE
 Get-PrimeFactor -Number 147
+3
+    7
+    7
 
 .EXAMPLE
-Get-PrimeFactor 147
+Get-PrimeFactor 20678
+2
+    7
+    7
+    211
 
 .OUTPUTS
 [System.Array] of [System.Int64]
@@ -100,9 +109,11 @@ An array of 64 bit integers.
 
 .EXAMPLE
 Get-LeastCommonMultiple -Numbers 147, 257
+37779
 
 .EXAMPLE
-Get-LeastCommonMultiple 147, 257
+Get-LeastCommonMultiple 147, 20678
+62034
 
 .OUTPUTS
 [System.Int64]
@@ -160,9 +171,11 @@ An array of 64 bit integers.
 
 .EXAMPLE
 Get-SumOfSquare -Numbers 147, 257
+87658
 
 .EXAMPLE
-Get-SumOfSquare 147, 257
+Get-SumOfSquare 147, 20678
+427601293
 
 .OUTPUTS
 [System.Int64]
@@ -197,9 +210,11 @@ An array of 64 bit integers.
 
 .EXAMPLE
 Get-SquareOfSum -Numbers 147, 257
+163213
 
 .EXAMPLE
-Get-SquareOfSum 147, 257
+Get-SquareOfSum 147, 20678
+433680625
 
 .OUTPUTS
 [System.Int64]
@@ -235,9 +250,27 @@ A 64 bit integer to which you wish to know the factors.
 
 .EXAMPLE
 Get-Factor -Number 147
+1
+    3
+    7
+    21
+    49
+    147
 
 .EXAMPLE
-Get-Factor 147
+Get-Factor 20678
+1
+    2
+    7
+    14
+    49
+    98
+    211
+    422
+    1477
+    2954
+    10339
+    20678
 
 .OUTPUTS
 [System.Array] of [System.Int64]
