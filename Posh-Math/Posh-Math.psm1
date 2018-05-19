@@ -1,5 +1,4 @@
-﻿#Return boolean value as to whether the input is Prime.
-Function Test-Prime{
+﻿Function Test-Prime{
 <#
 .SYNOPSIS
 Test if a provided number is prime.
@@ -42,8 +41,8 @@ param(
     }
     Write-Output $IsPrime
 }
+Export-ModuleMember Test-Prime
 
-#Return array of the prime factors for the input.
 Function Get-PrimeFactor{
 <#
 .SYNOPSIS
@@ -94,8 +93,8 @@ Last Modified: 19 May 2018
     }
     Write-Output $PrimeFactors
 }
+Export-ModuleMember Get-PrimeFactor
 
-#Provides the least common multiple for the input.
 Function Get-LeastCommonMultiple{
 <#
 .SYNOPSIS
@@ -156,8 +155,8 @@ Last Modified: 19 May 2018
     $Product = [Convert]::ToInt64($Product, $null)
     Write-Output $Product
 }
+Export-ModuleMember Get-LeastCommonMultiple
 
-#Provides the sum of all the squares that are input.
 Function Get-SumOfSquare{
 <#
 .SYNOPSIS
@@ -195,8 +194,8 @@ Last Modified: 19 May 2018
     }
     Write-Output $Total
 }
+Export-ModuleMember Get-SumOfSquare
 
-#Provides the square of the sum of input.
 Function Get-SquareOfSum{
 <#
 .SYNOPSIS
@@ -235,8 +234,8 @@ Last Modified: 19 May 2018
     $Total = $Total * $Total
     Write-Output $Total
 }
+Export-ModuleMember Get-SquareOfSum
 
-#Get all factors of a number.
 Function Get-Factor{
 <#
 .SYNOPSIS
@@ -299,3 +298,9 @@ Last Modified: 19 May 2018
     $Factors = $Factors | Select-Object -Unique | Sort-Object
     Write-Output $Factors
 }
+Export-ModuleMember Get-Factor
+
+Function Get-MathCommand{
+    Get-Command -Module Posh-Math
+}
+Export-ModuleMember Get-MathCommand
