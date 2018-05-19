@@ -301,6 +301,35 @@ Last Modified: 19 May 2018
 Export-ModuleMember Get-Factor
 
 Function Get-MathCommand{
-    Get-Command -Module Posh-Math
+<#
+.SYNOPSIS
+Get the commands from Posh-Math.
+
+.DESCRIPTION
+Returns the commands in the Posh-Math module.
+
+.PARAMETER Name
+A string array that will filter to specific commands based on their name.
+
+.EXAMPLE
+Get-MathCommand
+
+.EXAMPLE
+Get-MathCommand -Name '*Get*'
+
+.EXAMPLE
+Get-MathCommand '*Get*'
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 19 May 2018
+#>
+    [cmdletbinding()]
+    param(
+        [Parameter(Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
+        [SupportsWildCards()]
+        [String[]]$Name='*'
+    )
+    Get-Command -Name $Name -Module Posh-Math
 }
 Export-ModuleMember Get-MathCommand
