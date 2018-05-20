@@ -145,9 +145,11 @@ Last Modified: 19 May 2018
             }
         }
     }
+
     $Exponentiation = $Collection | ForEach-Object {
         [Math]::Pow($PSItem.Name,$PSItem.Occurrence)
     }
+
     $Product = 1
     ForEach ($Entry in $Exponentiation){
         $Product = $Product * $Entry
@@ -209,7 +211,7 @@ An array of 64 bit integers.
 
 .EXAMPLE
 Get-SquareOfSum -Number 147, 257
-163213
+163216
 
 .EXAMPLE
 Get-SquareOfSum 147, 20678
