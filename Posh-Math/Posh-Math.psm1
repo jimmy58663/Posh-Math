@@ -302,6 +302,56 @@ Last Modified: 19 May 2018
 }
 Export-ModuleMember Get-Factor
 
+Function ConvertTo-Binary{
+<#
+.SYNOPSIS
+Converts a base 10 number to binary.
+
+.DESCRIPTION
+Converts a base 10 number to binary.
+
+.PARAMETER Number
+A base 10 number to change to binary.
+
+.EXAMPLE
+ConvertTo-Binary -Number 147
+10010101
+
+.EXAMPLE
+ConvertTo-Binary 20678
+101000101001010
+
+.OUTPUTS
+[System.String]
+
+.NOTES
+Author: Joshua Chase
+Last Modified: 13 Jan 2019
+#>
+    [cmdletbinding()]
+    param(
+        [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
+        [long]$Number
+    )
+
+    If ($Number -eq 0){
+        Return 0
+    }
+    Else{
+        $AbsoluteValue = [math]::abs($Number)
+        $BinaryString = ''
+        While ($AbsoluteValue -gt 0){
+            $BinaryString = ($AbsoluteValue % 2).ToString() + $BinaryString
+            $AbsoluteValue = [int]($AbsoluteValue / 2)
+        }
+        If ($Number -lt 0){
+            $BinaryString = '-' + $BinaryString
+        }
+        Return $BinaryString
+    }
+}
+Export-ModuleMember -Function ConvertTo-Binary
+
 Function Get-MathCommand{
 <#
 .SYNOPSIS

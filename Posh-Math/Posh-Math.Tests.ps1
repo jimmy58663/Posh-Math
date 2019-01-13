@@ -74,10 +74,18 @@ InModuleScope Posh-Math{
             Get-Factor 20678 | Should be 1, 2, 7, 14, 49, 98, 211, 422, 1477, 2954, 10339, 20678
         }
     }
+    
+    Describe 'ConvertTo-Binary'{
+        It 'Returns proper binary'{
+            ConvertTo-Binary 9 | Should be '1001'
+            ConvertTo-Binary 147 | Should be '10010101'
+            ConvertTo-Binary 20678 | Should be '101000101001010'
+        }
+    }
 
     Describe 'Get-MathCommand'{
         It 'Returns proper commands'{
-            Get-MathCommand | Select-Object -ExpandProperty Name | Should be 'Get-Factor', 'Get-LeastCommonMultiple', 'Get-MathCommand', 'Get-PrimeFactor', 'Get-SquareOfSum', 'Get-SumOfSquare', 'Test-Prime'
+            Get-MathCommand | Select-Object -ExpandProperty Name | Should be 'Get-Factor', 'Get-LeastCommonMultiple', 'Get-MathCommand', 'Get-PrimeFactor', 'Get-SquareOfSum', 'Get-SumOfSquare', 'Test-Prime', 'ConvertTo-Binary'
             Get-MathCommand -Name '*Test*' | Select-Object -ExpandProperty Name | Should be 'Test-Prime'
         }
     }
