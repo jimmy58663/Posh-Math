@@ -335,7 +335,7 @@ Last Modified: 13 Jan 2019
     )
 
     If ($Number -eq 0){
-        Return 0
+        Return '0'
     }
     Else{
         $AbsoluteValue = [math]::abs($Number)
