@@ -77,6 +77,7 @@ InModuleScope Posh-Math{
     
     Describe 'ConvertTo-Binary'{
         It 'Returns proper binary'{
+            ConvertTo-Binary 0 | Should be '0'
             ConvertTo-Binary 9 | Should be '1001'
             ConvertTo-Binary 147 | Should be '10010101'
             ConvertTo-Binary 20678 | Should be '101000101001010'
