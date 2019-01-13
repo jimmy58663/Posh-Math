@@ -4,11 +4,12 @@ Import-Module "$PSScriptRoot\Posh-Math.psm1"
 InModuleScope Posh-Math{
     Describe 'Test-Prime'{
         It 'Returns the proper boolean'{
-            Test-Prime -Number 1 | Should be $true
+            Test-Prime -Number 1 | Should be $false
             Test-Prime -Number 2 | Should be $true
             Test-Prime -Number 3 | Should be $true
             Test-Prime -Number 4 | Should be $false
             Test-Prime -Number 147 | Should be $false
+            Test-Prime -Number 60281 | Should be $true
             Test-Prime -Number 15485862 | Should be $false
             Test-Prime -Number 15485863 | Should be $true
         }

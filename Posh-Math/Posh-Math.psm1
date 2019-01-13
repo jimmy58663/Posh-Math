@@ -29,6 +29,10 @@ param(
     [Parameter(Mandatory=$true,Position=0,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
     [long]$Number
 )
+    If ($Number -eq 0 -or $Number -eq 1){
+        Return $false
+    }
+    
     $LowEnd = 2
     $HighEnd = [Math]::Sqrt($Number)
 
